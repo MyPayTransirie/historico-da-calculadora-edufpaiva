@@ -10,6 +10,8 @@ val divPat = Regex("[0-9.]+[/][0-9.]+")
 val plusPat = Regex("[0-9.]+[+][0-9.]+")
 val minPat = Regex("[0-9.]+[-][0-9.]+")
 val simbPat = Regex("[+\\-/x]")
+val lastnumPat = Regex("[0-9.]+$")
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +23,32 @@ class MainActivity : AppCompatActivity() {
         btn_mult.setOnClickListener(){ addSymbol("x")}
         btn_plus.setOnClickListener(){ addSymbol("+")}
 
+        btn_0.setOnClickListener(){addNum("0")}
+        btn_1.setOnClickListener(){addNum("1")}
+        btn_2.setOnClickListener(){addNum("2")}
+        btn_3.setOnClickListener(){addNum("3")}
+        btn_4.setOnClickListener(){addNum("4")}
+        btn_5.setOnClickListener(){addNum("5")}
+        btn_6.setOnClickListener(){addNum("6")}
+        btn_7.setOnClickListener(){addNum("7")}
+        btn_8.setOnClickListener(){addNum("8")}
+        btn_9.setOnClickListener(){addNum("9")}
+
+
+
+    }
+
+    fun addNum(num:String){
+        var txt = txt_prev.text.toString()
+        txt += num
+        var lastNum = lastnumPat.find(txt)?.value.toString()
+        if( Regex("[.]").find(lastNum) != null){
+            txt = txt.replace(lastNum, lastNum?.toDouble().toString())
+        }else{
+            txt = txt.replace(lastNum, lastNum?.toInt().toString())
+        }
+
+        txt_prev.text = txt
     }
 
     fun addSymbol(symbol: String) {
