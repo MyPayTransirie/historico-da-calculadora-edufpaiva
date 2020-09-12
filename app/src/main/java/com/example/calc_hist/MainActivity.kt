@@ -34,7 +34,19 @@ class MainActivity : AppCompatActivity() {
         btn_8.setOnClickListener(){addNum("8")}
         btn_9.setOnClickListener(){addNum("9")}
 
+        btn_result.setOnClickListener(){
+            val txt = txt_prev.text.toString()
+            var result = eval(txt)
+            if(result % result.toInt() == 0.0){
+                txt_prev.text = result.toInt().toString()
+            }else{
+                txt_prev.text = result.toString()
 
+            }
+
+            txt_complete.text = txt
+
+        }
 
     }
 
@@ -100,7 +112,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         return txt.toDouble()
-
     }
 
     fun getResult(txt: String): Double {
