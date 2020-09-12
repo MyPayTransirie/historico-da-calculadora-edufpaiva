@@ -71,7 +71,7 @@
 
     <Button
         android:id="@+id/btn_0"
-        android:layout_width="204dp"
+        android:layout_width="101dp"
         android:layout_height="70dp"
         android:layout_marginStart="4dp"
         android:text="0"
@@ -103,6 +103,7 @@
         android:layout_height="70dp"
         android:text=","
         android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_result"
         app:layout_constraintStart_toEndOf="@+id/btn_0"
         app:layout_constraintTop_toBottomOf="@+id/btn_3" />
 
@@ -112,8 +113,19 @@
         android:layout_height="70dp"
         android:text="+/-"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_result"
         app:layout_constraintStart_toEndOf="@+id/btn_comma"
+        app:layout_constraintTop_toBottomOf="@+id/btn_3" />
+
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="101dp"
+        android:layout_height="70dp"
+        android:text="+"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_sign"
         app:layout_constraintTop_toBottomOf="@+id/btn_minus" />
 
     <Button
