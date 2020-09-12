@@ -41,12 +41,14 @@ class MainActivity : AppCompatActivity() {
                 txt_prev.text = result.toInt().toString()
             }else{
                 txt_prev.text = result.toString()
-
             }
 
             txt_complete.text = txt
 
         }
+
+        btn_ce.setOnClickListener(){txt_prev.text = ""}
+        btn_c.setOnClickListener(){txt_prev.text = ""}
 
     }
 
