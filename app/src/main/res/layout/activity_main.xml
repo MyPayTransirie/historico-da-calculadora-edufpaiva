@@ -178,7 +178,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_9"
         app:layout_constraintTop_toBottomOf="@+id/btn_del"
-        tools:text="o\n–\no" />
+        tools:text="&#247;" />
 
     <Button
         android:id="@+id/btn_ce"
