@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">calc-hist</string>
+    <string name="strPercent">%</string>
+    <string name="strSeven">7</string>
+    <string name="strFour">4</string>
+    <string name="strOne">1</string>
+    <string name="strZero">0</string>
+    <string name="strTwo">2</string>
+    <string name="strThree">3</string>
+    <string name="strComma">,</string>
+    <string name="strSign">+/-</string>
+    <string name="strPlus">+</string>
+    <string name="strMinus">–</string>
+    <string name="strFive">5</string>
+    <string name="strSix">6</string>
+    <string name="strMult">X</string>
+    <string name="strEight">8</string>
+    <string name="strNine">9</string>
+    <string name="strCE">CE</string>
+    <string name="strDel">DEL</string>
+    <string name="strC">C</string>
+    <string name="strEqual">=</string>
+    <string name="strDiv">÷</string>
 </resources>
