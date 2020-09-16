@@ -2,8 +2,10 @@ package com.example.calc_hist
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 val multPat = Regex("[0-9.]+[x][0-9.]+")
 val divPat = Regex("[0-9.]+[/][0-9.]+")
@@ -35,15 +37,20 @@ class MainActivity : AppCompatActivity() {
         btn_9.setOnClickListener(){addNum("9")}
 
         btn_result.setOnClickListener(){
-            val txt = txt_prev.text.toString()
-            var result = eval(txt)
-            if(result % result.toInt() == 0.0){
-                txt_prev.text = result.toInt().toString()
-            }else{
-                txt_prev.text = result.toString()
-            }
+            try {
+                val txt = txt_prev.text.toString()
+                var result = eval(txt)
+                if(result % result.toInt() == 0.0){
+                    txt_prev.text = result.toInt().toString()
+                }else{
+                    txt_prev.text = result.toString()
+                }
 
-            txt_complete.text = txt
+                txt_complete.text = txt
+
+            }catch (ex: Exception){
+                Toast.makeText(this, "Invalid Expression", Toast.LENGTH_SHORT).show()
+            }
 
         }
 
@@ -120,7 +127,7 @@ class MainActivity : AppCompatActivity() {
         return txt.toDouble()
     }
 
-    fun getResult(txt: String): Double {
+    fun getResult(txt: String): Double? {
 
         val numbers = txt.split(simbPat).map { x -> x.toDouble() }
         val symbol = simbPat.find(txt)?.value
@@ -129,7 +136,10 @@ class MainActivity : AppCompatActivity() {
             "+" -> return numbers[0] + numbers[1]
             "-" -> return numbers[0] - numbers[1]
             "x" -> return numbers[0] * numbers[1]
-            "/" -> return numbers[0] / numbers[1]
+            "/" -> {
+                if(numbers[1] == 0.0) return null
+                return numbers[0] / numbers[1]
+            }
         }
         return 0.0
     }
