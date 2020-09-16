@@ -49,6 +49,10 @@ class MainActivity : AppCompatActivity() {
 
         btn_ce.setOnClickListener(){txt_prev.text = ""}
         btn_c.setOnClickListener(){txt_prev.text = ""}
+        btn_del.setOnClickListener(){
+            val txt = txt_prev.text
+            if(!txt.isEmpty()) txt_prev.text = txt.substring(0..(txt.length-2))
+        }
 
     }
 
